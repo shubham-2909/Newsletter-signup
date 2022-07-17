@@ -33,18 +33,20 @@ app.post("/", function (req,res) {
     method:"POST",
     body: jsonData,
     headers:{
-      "Authorization":"Shuhbam1 7363dbe2df7a76f6fa40daf0d0360480-us14"
+      "Authorization":"Shuhbam1 2135e16cc46474a0534a473223d28db1-us14"
     }
   }
 
   request(options,function (error,response,body) {
         if(error){
           res.sendFile(__dirname + "/failure.html");
+          console.log(error);
         }else{
           if(response.statusCode == 200){
             res.sendFile(__dirname + "/success.html");
           }else{
             res.sendFile(__dirname + "/failure.html");
+            console.log(response.statusCode);
           }
         }
   })
